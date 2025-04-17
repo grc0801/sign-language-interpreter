@@ -47,13 +47,6 @@ This project aims to:
 git clone https://github.com/grc0801/sign-language-interpreter.git
 cd sign-language-interpreter
 
-pip install -r requirements.txt
-
-python main.py’’’
-
 ---
 
-##
-
-
-
+## 
