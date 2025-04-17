@@ -46,7 +46,3 @@ This project aims to:
 ```bash
 git clone https://github.com/grc0801/sign-language-interpreter.git
 cd sign-language-interpreter
-
----
-
-## 
