@@ -35,23 +35,17 @@ This project aims to:
 
 --------------------------------------------------------------------------------
 
-## Folder Structure
+## Folder Descriptions
 
-sign-language-interpreter/
-│
-├── dataset/               --> Contains training images
-├── model/                 --> Trained .h5 and .tflite models
-├── src/                   --> Main source code
-│   ├── hand_tracker.py    --> Hand landmark detection using MediaPipe
-│   ├── classifier.py      --> CNN-based gesture classifier
-│   ├── tts.py             --> Text-to-speech module
-│   └── display.py         --> OLED display handling
-├── display/               --> OLED configuration and scripts
-├── requirements.txt       --> List of Python dependencies
-├── train_model.py         --> Script to train the CNN model
-├── convert_model.py       --> Script to convert to TFLite
-├── main.py                --> Main execution script
-└── README.md              --> Project documentation
+- dataset: Contains the gesture image dataset used for training.
+- model: Stores the trained CNN model (.h5) and the converted TFLite model (.tflite).
+- src: Contains all source code files including gesture classification, hand tracking, and display handling.
+- display: Contains OLED-related code and configuration.
+- requirements.txt: Lists all required Python packages.
+- train_model.py: Script to train the CNN model.
+- convert_model.py: Script to convert the trained model to TensorFlow Lite format.
+- main.py: The main executable script that runs the interpreter system.
+- README.md: Documentation for the project.
 
 --------------------------------------------------------------------------------
 
@@ -66,11 +60,11 @@ Step 2: Install Python dependencies
 
     pip install -r requirements.txt
 
-Alternatively, manually install:
+Or install them manually:
 
     pip install opencv-python mediapipe tensorflow pyttsx3 gTTS numpy
 
-Step 3: For Raspberry Pi (Optional):
+Step 3: If using Raspberry Pi, install espeak:
 
     sudo apt-get install espeak
 
@@ -78,24 +72,24 @@ Step 3: For Raspberry Pi (Optional):
 
 ## How to Run
 
-To run with webcam:
+To run using a webcam:
 
     python main.py --mode webcam
 
-To run with IP camera:
+To run using an IP camera stream:
 
     python main.py --mode ip --url http://your_ip_camera_stream
 
-Ensure that the model file is present in the 'model/' folder as 'model.tflite'.
+Ensure that the model file is placed in the "model" folder as "model.tflite".
 
 --------------------------------------------------------------------------------
 
 ## Model Training (Optional)
 
-To train your own model:
+To train your own model using your dataset:
 
-1. Place gesture images inside 'dataset/' with subfolders per class
-2. Run:
+1. Organize your images in subfolders by class inside the "dataset" folder.
+2. Run the training script:
 
     python train_model.py
 
@@ -105,24 +99,22 @@ To convert the trained model to TensorFlow Lite format:
 
 --------------------------------------------------------------------------------
 
-## Sample Output
+## Sample Output Description
 
-Sample system behavior:
-
-- Captures hand gesture
-- Detects and classifies gesture
-- Displays recognized word on screen
-- Outputs spoken word via speaker
+- Captures hand gesture in real time
+- Detects and classifies the gesture
+- Displays the interpreted word on the OLED screen or monitor
+- Speaks the word using a text-to-speech engine
 
 --------------------------------------------------------------------------------
 
 ## Deployment on Raspberry Pi 5
 
-1. Clone the repository on Raspberry Pi
-2. Install required libraries (use TFLite runtime if needed)
-3. Connect OLED display and configure via display.py
-4. Attach USB camera or Pi Camera module
-5. Run the project:
+1. Clone this repository on your Raspberry Pi.
+2. Install all required Python packages.
+3. Connect and configure the OLED display via I2C or SPI.
+4. Plug in a webcam or use a Pi Camera module.
+5. Run the main script:
 
     python main.py
 
@@ -130,30 +122,30 @@ Sample system behavior:
 
 ## Features
 
-- Real-time gesture recognition
-- Offline functionality using pyttsx3
-- Portable deployment on Raspberry Pi 5
-- Text output via monitor or OLED
-- Audio output for interpreted sign
+- Real-time recognition of hand gestures
+- Works offline (with pyttsx3)
+- Text display on screen or OLED
+- Speech output for interpreted signs
+- Optimized for portable edge deployment
 
 --------------------------------------------------------------------------------
 
 ## Future Improvements
 
-- Add support for dynamic gestures (gesture sequences)
-- Expand dataset with more vocabulary
-- Add graphical user interface (GUI)
-- Multilingual audio output support
-- Optimize model size for faster inference on edge devices
+- Add support for dynamic gestures
+- Expand dataset with more words and gestures
+- Build a GUI for better user experience
+- Add multilingual output support
+- Further reduce model size for better Raspberry Pi performance
 
 --------------------------------------------------------------------------------
 
 ## Acknowledgements
 
 - MediaPipe for hand tracking
-- TensorFlow for model training and inference
-- OpenCV for image and video processing
-- pyttsx3 and gTTS for text-to-speech functionality
+- TensorFlow for deep learning framework
+- OpenCV for image and video handling
+- pyttsx3 and gTTS for text-to-speech capabilities
 
 --------------------------------------------------------------------------------
 
